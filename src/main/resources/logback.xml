@@ -21,10 +21,10 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework" level="debug" additivity="false">
+    <!--<logger name="org.springframework" level="debug" additivity="false">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
-    </logger>
+    </logger>-->
 
     <logger name="mn.turuu.springtest" level="debug" additivity="false">
         <appender-ref ref="STDOUT" />
