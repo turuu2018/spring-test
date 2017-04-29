@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/spring-test.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/spring-test.%i.log</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>999</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>10MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="mn.turuu.springtest" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!--<logger name="org.springframework.security" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>-->
+    <!--<logger name="org.hibernate" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>-->
+    <!--<logger name="com.mysql" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>-->
+
+    <root level="error">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
