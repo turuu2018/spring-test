@@ -5,10 +5,12 @@ import java.util.logging.Logger;
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.DispatcherServlet;
 
 /**
  *
@@ -45,5 +47,9 @@ public class AppInitializer implements WebApplicationInitializer {
         encodingFilter.setInitParameter("encoding", "UTF-8");
         encodingFilter.setInitParameter("forceEncoding", "true");
         encodingFilter.addMappingForUrlPatterns(null, true, "/*");
+
+        ServletRegistration.Dynamic appServlet = servletContext.addServlet("appServlet", new DispatcherServlet(rootContext));
+        appServlet.setLoadOnStartup(1);
+        appServlet.addMapping("/");
     }
 }
