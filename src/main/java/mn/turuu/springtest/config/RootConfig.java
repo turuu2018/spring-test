@@ -12,7 +12,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
  */
 @Configuration
 @ComponentScan(basePackages = {"mn.turuu.springtest"})
-@Import({WebMvcConfig.class})
+@Import({WebMvcConfig.class, DatabaseConfig.class})
 public class RootConfig {
 
     @Bean

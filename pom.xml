@@ -25,6 +25,9 @@
         <tiles.version>3.0.5</tiles.version>
         <tiles-request-servlet.version>1.0.6</tiles-request-servlet.version>
 
+        <hibernate.version>4.3.11.Final</hibernate.version>
+        <mysql-jdbc.version>5.1.41</mysql-jdbc.version>
+
         <!-- Logging -->
         <logback.version>1.1.6</logback.version>
         <jcl.slf4j.version>1.7.19</jcl.slf4j.version>
@@ -40,6 +43,16 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
             <version>${spring-framework.version}</version>
         </dependency>
 
@@ -77,6 +90,18 @@
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-request-servlet</artifactId>
             <version>${tiles-request-servlet.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-jdbc.version}</version>
         </dependency>
 
         <!-- Bridge logging from JCL to SLF4j-->
