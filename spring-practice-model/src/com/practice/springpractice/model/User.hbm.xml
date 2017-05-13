@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2017 5:23:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.practice.springpractice.model.User" table="user" catalog="mysql" optimistic-lock="version">
+        <composite-id name="id" class="com.practice.springpractice.model.UserId">
+            <key-property name="host" type="string">
+                <column name="Host" length="60" />
+            </key-property>
+            <key-property name="user" type="string">
+                <column name="User" length="32" />
+            </key-property>
+        </composite-id>
+        <property name="selectPriv" type="string">
+            <column name="Select_priv" length="2" not-null="true" />
+        </property>
+        <property name="insertPriv" type="string">
+            <column name="Insert_priv" length="2" not-null="true" />
+        </property>
+        <property name="updatePriv" type="string">
+            <column name="Update_priv" length="2" not-null="true" />
+        </property>
+        <property name="deletePriv" type="string">
+            <column name="Delete_priv" length="2" not-null="true" />
+        </property>
+        <property name="createPriv" type="string">
+            <column name="Create_priv" length="2" not-null="true" />
+        </property>
+        <property name="dropPriv" type="string">
+            <column name="Drop_priv" length="2" not-null="true" />
+        </property>
+        <property name="reloadPriv" type="string">
+            <column name="Reload_priv" length="2" not-null="true" />
+        </property>
+        <property name="shutdownPriv" type="string">
+            <column name="Shutdown_priv" length="2" not-null="true" />
+        </property>
+        <property name="processPriv" type="string">
+            <column name="Process_priv" length="2" not-null="true" />
+        </property>
+        <property name="filePriv" type="string">
+            <column name="File_priv" length="2" not-null="true" />
+        </property>
+        <property name="grantPriv" type="string">
+            <column name="Grant_priv" length="2" not-null="true" />
+        </property>
+        <property name="referencesPriv" type="string">
+            <column name="References_priv" length="2" not-null="true" />
+        </property>
+        <property name="indexPriv" type="string">
+            <column name="Index_priv" length="2" not-null="true" />
+        </property>
+        <property name="alterPriv" type="string">
+            <column name="Alter_priv" length="2" not-null="true" />
+        </property>
+        <property name="showDbPriv" type="string">
+            <column name="Show_db_priv" length="2" not-null="true" />
+        </property>
+        <property name="superPriv" type="string">
+            <column name="Super_priv" length="2" not-null="true" />
+        </property>
+        <property name="createTmpTablePriv" type="string">
+            <column name="Create_tmp_table_priv" length="2" not-null="true" />
+        </property>
+        <property name="lockTablesPriv" type="string">
+            <column name="Lock_tables_priv" length="2" not-null="true" />
+        </property>
+        <property name="executePriv" type="string">
+            <column name="Execute_priv" length="2" not-null="true" />
+        </property>
+        <property name="replSlavePriv" type="string">
+            <column name="Repl_slave_priv" length="2" not-null="true" />
+        </property>
+        <property name="replClientPriv" type="string">
+            <column name="Repl_client_priv" length="2" not-null="true" />
+        </property>
+        <property name="createViewPriv" type="string">
+            <column name="Create_view_priv" length="2" not-null="true" />
+        </property>
+        <property name="showViewPriv" type="string">
+            <column name="Show_view_priv" length="2" not-null="true" />
+        </property>
+        <property name="createRoutinePriv" type="string">
+            <column name="Create_routine_priv" length="2" not-null="true" />
+        </property>
+        <property name="alterRoutinePriv" type="string">
+            <column name="Alter_routine_priv" length="2" not-null="true" />
+        </property>
+        <property name="createUserPriv" type="string">
+            <column name="Create_user_priv" length="2" not-null="true" />
+        </property>
+        <property name="eventPriv" type="string">
+            <column name="Event_priv" length="2" not-null="true" />
+        </property>
+        <property name="triggerPriv" type="string">
+            <column name="Trigger_priv" length="2" not-null="true" />
+        </property>
+        <property name="createTablespacePriv" type="string">
+            <column name="Create_tablespace_priv" length="2" not-null="true" />
+        </property>
+        <property name="sslType" type="string">
+            <column name="ssl_type" length="9" not-null="true" />
+        </property>
+        <property name="sslCipher" type="binary">
+            <column name="ssl_cipher" not-null="true" />
+        </property>
+        <property name="x509Issuer" type="binary">
+            <column name="x509_issuer" not-null="true" />
+        </property>
+        <property name="x509Subject" type="binary">
+            <column name="x509_subject" not-null="true" />
+        </property>
+        <property name="maxQuestions" type="int">
+            <column name="max_questions" not-null="true" />
+        </property>
+        <property name="maxUpdates" type="int">
+            <column name="max_updates" not-null="true" />
+        </property>
+        <property name="maxConnections" type="int">
+            <column name="max_connections" not-null="true" />
+        </property>
+        <property name="maxUserConnections" type="int">
+            <column name="max_user_connections" not-null="true" />
+        </property>
+        <property name="plugin" type="string">
+            <column name="plugin" length="64" not-null="true" />
+        </property>
+        <property name="authenticationString" type="string">
+            <column name="authentication_string" length="65535" />
+        </property>
+        <property name="passwordExpired" type="string">
+            <column name="password_expired" length="2" not-null="true" />
+        </property>
+        <property name="passwordLastChanged" type="timestamp">
+            <column name="password_last_changed" length="19" />
+        </property>
+        <property name="passwordLifetime" type="java.lang.Short">
+            <column name="password_lifetime" />
+        </property>
+        <property name="accountLocked" type="string">
+            <column name="account_locked" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

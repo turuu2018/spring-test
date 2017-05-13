@@ -1,3 +1,6 @@
-/target/
-/catalina.base_IS_UNDEFINED/
 /spring-test-model/nbproject/private/
+/spring-practice-model/nbproject/private/
+
+/spring-test/target/
+/spring-test/catalina.base_IS_UNDEFINED/
+/spring-test/target/
