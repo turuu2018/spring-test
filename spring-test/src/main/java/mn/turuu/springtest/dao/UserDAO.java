@@ -2,7 +2,6 @@ package mn.turuu.springtest.dao;
 
 import java.util.List;
 import java.util.logging.Logger;
-import mn.turuu.springtest.config.DatabaseConfig;
 import mn.turuu.springtest.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -30,6 +29,24 @@ public class UserDAO {
 
             Criteria crit = session.createCriteria(User.class);
             crit.add(Restrictions.eq("id", id));
+            List<User> users = crit.list();
+            if (users.size() == 1) {
+                return users.get(0);
+            }
+        } catch (HibernateException e) {
+            LOGGER.severe(e.getMessage());
+            //LOGGER.severe(e.getStackTrace());
+        }
+
+        return null;
+    }
+
+    public User get(String username) {
+        try {
+            Session session = sessionFactory.getCurrentSession();
+
+            Criteria crit = session.createCriteria(User.class);
+            crit.add(Restrictions.eq("username", username));
             List<User> users = crit.list();
             if (users.size() == 1) {
                 return users.get(0);

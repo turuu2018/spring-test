@@ -1,12 +1,16 @@
 package mn.turuu.springtest.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,7 +31,7 @@ public class User implements Serializable {
     @Column(name = "username", nullable = false, length = 50)
     private String username;
 
-    @Column(name = "password", nullable = false, length = 50)
+    @Column(name = "password", nullable = false, length = 64)
     private String password;
 
     @Column(name = "active", nullable = false)
@@ -46,6 +50,9 @@ public class User implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_logged_date", length = 19)
     private Date lastLoggedDate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<UserRole> userRoles = new ArrayList<>(0);
 
     public Integer getId() {
         return id;
@@ -109,5 +116,13 @@ public class User implements Serializable {
 
     public void setLastLoggedDate(Date lastLoggedDate) {
         this.lastLoggedDate = lastLoggedDate;
+    }
+
+    public List<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(List<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 }

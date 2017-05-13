@@ -6,5 +6,7 @@
 <tiles-definitions>
     <definition name="main-layout" template="/WEB-INF/layout/main_layout.jsp" />
 
+    <definition name="login-layout" template="/WEB-INF/layout/login_layout.jsp" />
+
     <definition name="error-layout" template="/WEB-INF/layout/error_layout.jsp" />
 </tiles-definitions>
