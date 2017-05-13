@@ -16,6 +16,9 @@
         <meta name="author" content="Turuu"/>
 
         <title>Spring Test</title>
+
+        <link rel="stylesheet" href="<c:url value="/static/css/bootstrap.min.css"/>"/>
+        <script type="text/javascript" src="<c:url value="/static/js/bootstrap.min.js"/>"></script>
     </head>
     <body class="body-offcanvas">
         <div class="wrap">

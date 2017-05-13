@@ -85,13 +85,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         messageSource.setCacheSeconds(0);
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
-    }
+    }*/
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         LOGGER.info("[Spring test] Adding resource handlers...");
 
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(604800); //secundeer 7 honog cach
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }*/
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(604800); //secundeer 7 honog cache
+    }
 }
