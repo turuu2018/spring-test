@@ -9,11 +9,17 @@
             <div class="col-md-6"></div>
             <div class="col-md-6">
                 <div class="pull-right">
+                    <a href="?lang=mn">MN</a>
+                    |
+                    <a href="?lang=en">EN</a>
+
                     <sec:authorize access="isAuthenticated()">
                         <sec:authentication property="principal.username"/>
+                        <a href="<c:url value="/logout"/>">Logout</a>
                     </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
                         <a href="<c:url value="/login"/>">Login</a>
+                        <a href="<c:url value="/register"/>">Register</a>
                     </sec:authorize>
                 </div>
             </div>

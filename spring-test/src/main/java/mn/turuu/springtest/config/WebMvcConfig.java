@@ -1,16 +1,21 @@
 package mn.turuu.springtest.config;
 
+import java.util.Locale;
 import java.util.logging.Logger;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.ResourceBundleViewResolver;
@@ -29,7 +34,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     private static final Logger LOGGER = Logger.getLogger(WebMvcConfig.class.getName());
 
-    /*@Override
+    @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LOGGER.info("[Spring test] Adding interceptors...");
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -38,7 +43,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
         //registry.addInterceptor(viewNameInModelInterceptor);
         //registry.addInterceptor(deviceResolverHandlerInterceptor());
-    }*/
+    }
 
     @Bean
     public TilesConfigurer tilesConfigurer() {
@@ -77,7 +82,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-    /*@Bean
+    @Bean
     public MessageSource messageSource() {
         LOGGER.info("[Spring test] Configuring message source...");
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -85,12 +90,32 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         messageSource.setCacheSeconds(0);
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
-    }*/
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         LOGGER.info("[Spring test] Adding resource handlers...");
 
         registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(604800); //secundeer 7 honog cache
+    }
+
+    @Override
+    public Validator getValidator() {
+        return vaidator();
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean vaidator() {
+        LOGGER.info("[Spring test] Configuring hibernate validator...");
+        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+        localValidatorFactoryBean.setValidationMessageSource(messageSource());
+        return localValidatorFactoryBean;
+    }
+
+    @Bean
+    public LocaleResolver localeResolver() {
+        CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+        localeResolver.setDefaultLocale(new Locale("mn"));
+        return localeResolver;
     }
 }
