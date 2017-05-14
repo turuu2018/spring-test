@@ -21,10 +21,10 @@
         <link rel="stylesheet" href="<c:url value="/static/css/bootstrap.min.css"/>"/>
 
         <!-- JS -->
+        <script type="text/javascript" src="<c:url value="/static/js/jquery-1.11.1.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/static/js/bootstrap.min.js"/>"></script>
-        <script type="text/javascript" src="<c:url value="/static/js/query-1.11.1.js"/>"></script>
-        <script type="text/javascript" src="<c:url value="/static/js/query-validate/jquery.validate.min.js"/>"></script>
-        <script type="text/javascript" src="<c:url value="/static/js/query-validate/additional-methods.min.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/static/js/jquery-validate/jquery.validate.min.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/static/js/jquery-validate/additional-methods.min.js"/>"></script>
     </head>
     <body class="body-offcanvas">
         <div class="wrap">

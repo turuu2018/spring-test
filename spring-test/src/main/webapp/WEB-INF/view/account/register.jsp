@@ -57,9 +57,46 @@
                         </span>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default"><fmt:message key="register"/></button>
+                <a id="btn_register" class="btn btn-default"><fmt:message key="register"/></a>
             </form:form>
         </div>
         <div class="col-md-3"></div>
     </div>
 </div>
+
+<script>
+    $(function() {
+        $('#registerForm').validate({
+            rules: {
+                username: {
+                    required: true,
+                    email: true
+                },
+                lastName: 'required',
+                firstName: 'required',
+                password1: 'required',
+                password2: {
+                    required: true,
+                    equalTo: '#registerForm input[name="password1"]'
+                }
+            },
+            messages: {
+                username: {
+                    required: '<fmt:message key="username.isNull"/>',
+                    email: '<fmt:message key="username.invalidEmail"/>'
+                },
+                lastName: '<fmt:message key="lastname.isNull"/>',
+                firstName: '<fmt:message key="firstname.isNull"/>',
+                password1: '<fmt:message key="password.isNull"/>',
+                password2: {
+                    required: '<fmt:message key="password.isNull"/>',
+                    equalTo: '<fmt:message key="password.notEqual"/>'
+                }
+            }
+        });
+
+        $('#btn_register').click(function() {
+            $('#registerForm').submit();
+        });
+    });
+</script>
