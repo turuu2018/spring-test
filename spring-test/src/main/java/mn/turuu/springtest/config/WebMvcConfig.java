@@ -29,7 +29,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"mn.turuu.springtest.controller"})
+@ComponentScan(basePackages = {"mn.turuu.springtest.controller", "mn.turuu.springtest.api"})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     private static final Logger LOGGER = Logger.getLogger(WebMvcConfig.class.getName());

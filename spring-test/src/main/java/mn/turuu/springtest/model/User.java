@@ -1,5 +1,6 @@
 package mn.turuu.springtest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -31,6 +33,7 @@ public class User implements Serializable {
     @Column(name = "username", nullable = false, length = 50)
     private String username;
 
+    @JsonIgnore
     @Column(name = "password", nullable = false, length = 64)
     private String password;
 
@@ -43,10 +46,12 @@ public class User implements Serializable {
     @Column(name = "first_name", length = 255)
     private String firstName;
 
+    //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "registered_date", nullable = false, length = 19)
     private Date registeredDate;
 
+    //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_logged_date", length = 19)
     private Date lastLoggedDate;
@@ -118,6 +123,7 @@ public class User implements Serializable {
         this.lastLoggedDate = lastLoggedDate;
     }
 
+    @JsonIgnore
     public List<UserRole> getUserRoles() {
         return userRoles;
     }

@@ -27,7 +27,7 @@
                 <tbody>
                     <c:forEach items="${users}" var="_user">
                         <tr>
-                            <td>${_user.username}</td>
+                            <td><a class="link_user" href="" data-id="${_user.id}">${_user.username}</a></td>
                             <td>${_user.lastName}</td>
                             <td>${_user.firstName}</td>
                             <td><fmt:formatDate value="${_user.registeredDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
@@ -35,6 +35,20 @@
                     </c:forEach>
                 </tbody>
             </table>
+            <span id="json_test" class="text-warning"></span>
         </div>
     </div>
 </div>
+
+<script>
+    $(function() {
+        $('.link_user').click(function(e) {
+            e.preventDefault();
+
+            var user_id = $(this).attr('data-id');
+            $.getJSON("<c:url value="/api/user/"/>" + user_id, function(result){
+                $('#json_test').append(result.username + '<br>');
+            });
+        });
+    });
+</script>
