@@ -1,5 +1,6 @@
 package mn.turuu.springtest.security;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -12,6 +13,11 @@ public class PasswordEncoderTest {
     @Test
     public void encrypt() {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        System.out.println(passwordEncoder.encode("test"));
+
+        String rawPassword = "test";
+        String encodedPassword = passwordEncoder.encode(rawPassword);
+
+        System.out.println("pass: " + encodedPassword);
+        Assert.assertTrue(passwordEncoder.matches(rawPassword, encodedPassword));
     }
 }
