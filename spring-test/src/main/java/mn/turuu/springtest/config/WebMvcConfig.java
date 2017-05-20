@@ -1,12 +1,16 @@
 package mn.turuu.springtest.config;
 
+import java.io.IOException;
 import java.util.Locale;
+import java.util.Properties;
 import java.util.logging.Logger;
+import org.apache.velocity.app.VelocityEngine;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
@@ -117,5 +121,18 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         CookieLocaleResolver localeResolver = new CookieLocaleResolver();
         localeResolver.setDefaultLocale(new Locale("mn"));
         return localeResolver;
+    }
+
+    @Bean
+    public VelocityEngine velocityEngine() throws IOException {
+        VelocityEngineFactoryBean veVactory = new VelocityEngineFactoryBean();
+        Properties props = new Properties();
+        props.put("resource.loader", "class");
+        props.put("input.encoding", "UTF-8");
+        props.put("output.encoding", "UTF-8");
+        props.put("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+        props.put("velocimacro.library", "org/springframework/web/servlet/view/velocity/spring.vm");
+        veVactory.setVelocityProperties(props);
+        return veVactory.createVelocityEngine();
     }
 }

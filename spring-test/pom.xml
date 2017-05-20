@@ -32,6 +32,11 @@
 
         <jackson.version>2.8.8</jackson.version>
 
+        <velocity.version>1.7</velocity.version>
+        <javax-mail.version>1.4.7</javax-mail.version>
+        <commons-email.version>1.4</commons-email.version>
+
+        <commons-lang.version>2.6</commons-lang.version>
         <!-- Logging -->
         <logback.version>1.1.6</logback.version>
         <jcl.slf4j.version>1.7.19</jcl.slf4j.version>
@@ -150,6 +155,28 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-jdbc.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>${commons-email.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>${javax-mail.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
         </dependency>
 
         <!-- Bridge logging from JCL to SLF4j-->

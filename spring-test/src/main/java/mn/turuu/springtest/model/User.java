@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -46,10 +45,17 @@ public class User implements Serializable {
     @Column(name = "first_name", length = 255)
     private String firstName;
 
+    @Column(name = "activate_token", length = 50)
+    private String activateToken;
+
     //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "registered_date", nullable = false, length = 19)
     private Date registeredDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "activated_date", nullable = false, length = 19)
+    private Date activatedDate;
 
     //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
@@ -107,12 +113,28 @@ public class User implements Serializable {
         this.firstName = firstName;
     }
 
+    public String getActivateToken() {
+        return activateToken;
+    }
+
+    public void setActivateToken(String activateToken) {
+        this.activateToken = activateToken;
+    }
+
     public Date getRegisteredDate() {
         return registeredDate;
     }
 
     public void setRegisteredDate(Date registeredDate) {
         this.registeredDate = registeredDate;
+    }
+
+    public Date getActivatedDate() {
+        return activatedDate;
+    }
+
+    public void setActivatedDate(Date activatedDate) {
+        this.activatedDate = activatedDate;
     }
 
     public Date getLastLoggedDate() {

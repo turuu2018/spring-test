@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@PropertySource("classpath:properties/config_${spring.profiles.active:development}.properties")
+//@PropertySource("classpath:properties/config_${spring.profiles.active:development}.properties")
 public class DatabaseConfig {
 
     private static final Logger LOGGER = Logger.getLogger(DatabaseConfig.class.getName());

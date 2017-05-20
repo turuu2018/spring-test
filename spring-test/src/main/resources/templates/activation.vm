@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    </head>
+    <body>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f8f8f8" height="100%">
+            <tbody>
+                <tr>
+                    <td valign="top" style="padding-top:30px" align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="600">
+                            <tbody>
+                                <tr style="background-color:#ffffff;border:1px solid #dddddd">
+                                    <td valign="top" style="border-bottom: 1px solid #eee">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <a href="" target="_blank">
+                                                            <img src="http://res.cloudinary.com/demo/image/fetch/f_auto/https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Spring test" style="padding: 15px 20px; width: 175px" class="CToWUd">
+                                                        </a>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <a href="" style="text-decoration:none;color:#787878;padding-left:8px;padding-right:15px"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr style="background-color:#ffffff;border:1px solid #dddddd">
+                                    <td valign="top" style="padding:40px 15px 0px 20px">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <span style="letter-spacing:.6px;font-size:16px;font-weight:bold;padding-bottom:15px">Сайн байна уу?</span>
+                                                        <p style="font-size:14px;color:#3e3e3e;line-height:20px; margin-top: 15px">
+                                                            Spring test сайтад хэрэглэгчээр бүртгүүлсэн танд баярлалаа. Та бүртгэлээ баталгаажуулахын тулд дараах холбоос дээр дарна уу: <a href="$activationUrl/$activationToken"> Бүртгэл баталгаажуулах</a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr style="background-color:#ffffff;border:1px solid #dddddd">
+                                    <td valign="top" style="padding:0px 15px 40px 20px">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <p style="font-size:14px;color:#3e3e3e;line-height:20px; margin-top: 15px">Таны бүртгүүлэх уг хүсэлт 30 хоногийн турш хүчинтэй байна. Хэрэв үйлчилгээний талаар асуух зүйл байвал бидэнтэй холбогдоорой. Бид таны асуултанд шуурхай хариу өгөх болно.</p><br>
+                                                        <p style="margin-top: 0px; font-weight:400">Танд амжилт хүсье.<br>Баярлалаа.</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr style="background-color:#0069f1;">
+                                    <td valign="top" style="padding: 20px 20px 30px 20px">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="middle" style="font-size:14px;color:#fff; opacity: .6" align="left">Copyright © Spring test
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
