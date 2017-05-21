@@ -10,6 +10,9 @@ import mn.turuu.springtest.form.ImageUploadForm;
 import mn.turuu.springtest.util.FileContentTypeUtil;
 import mn.turuu.springtest.util.FileUtil;
 import mn.turuu.springtest.util.ImageUtil;
+import org.gm4java.engine.GMException;
+import org.gm4java.engine.GMServiceException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +30,9 @@ public class ImageUploadController {
     private static final Logger LOGGER = Logger.getLogger(ImageUploadController.class.getName());
 
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+    @Autowired
+    private ImageUtil imageUtil;
 
     @RequestMapping(value = "/image-upload", method = RequestMethod.GET)
     public ModelAndView imageUpload() {
@@ -47,12 +53,22 @@ public class ImageUploadController {
                     FileUtil.createDirectory(folderPath);
 
                     String extension = FileContentTypeUtil.getExtension(multipartFile.getContentType(), false);
-                    String sourcePath = folderPath + "/" + multipartFile.getOriginalFilename() + "." + extension;
-                    multipartFile.transferTo(new File(sourcePath));
+                    String tempPath = folderPath + "/" + multipartFile.getOriginalFilename() + "_temp." + extension;
+                    String targetPath = folderPath + "/" + multipartFile.getOriginalFilename() + "." + extension;
+                    multipartFile.transferTo(new File(tempPath));
 
                     // create thumbnail
                     String thumbPath = folderPath + "/" + multipartFile.getOriginalFilename() + "_thumb." + extension;
-                    ImageUtil.createImage(sourcePath, thumbPath, 320, 240, extension);
+                    //ImageUtil.createImage(sourcePath, thumbPath, 320, 240, extension);
+
+                    try {
+                        imageUtil.resize(tempPath, targetPath, 1280, 720, true, 75);
+                        imageUtil.resize(tempPath, thumbPath, 320, 240, true, 75);
+
+                        FileUtil.deleteFile(tempPath);
+                    } catch (IOException | GMException | GMServiceException e) {
+                        LOGGER.log(Level.SEVERE, null, e);
+                    }
                 }
             }
         }

@@ -21,4 +21,12 @@ public class FileUtil {
 
         return result;
     }
+
+    public static boolean deleteFile(String path) {
+        File file = new File(path);
+        if (file.exists() && file.canRead()) {
+            return file.delete();
+        }
+        return false;
+    }
 }
