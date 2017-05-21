@@ -13,6 +13,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -134,5 +135,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         props.put("velocimacro.library", "org/springframework/web/servlet/view/velocity/spring.vm");
         veVactory.setVelocityProperties(props);
         return veVactory.createVelocityEngine();
+    }
+
+    @Bean
+    public CommonsMultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(41943040);
+        multipartResolver.setMaxInMemorySize(10485760);
+        return multipartResolver;
     }
 }

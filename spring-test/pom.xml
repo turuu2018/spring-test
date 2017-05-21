@@ -36,6 +36,10 @@
         <javax-mail.version>1.4.7</javax-mail.version>
         <commons-email.version>1.4</commons-email.version>
 
+        <imgscalr.version>4.2</imgscalr.version>
+
+        <commons-io.version>2.5</commons-io.version>
+        <commons-fileupload.version>1.3.2</commons-fileupload.version>
         <commons-lang.version>2.6</commons-lang.version>
         <!-- Logging -->
         <logback.version>1.1.6</logback.version>
@@ -173,6 +177,22 @@
             <version>${javax-mail.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>${imgscalr.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload.version}</version>
+        </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
