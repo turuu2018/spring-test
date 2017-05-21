@@ -14,7 +14,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @ComponentScan(basePackages = {"mn.turuu.springtest"})
 @PropertySource("classpath:properties/config_${spring.profiles.active:development}.properties")
-@Import({WebMvcConfig.class, DatabaseConfig.class, SecurityConfig.class})
+@Import({WebMvcConfig.class, DatabaseConfig.class, SecurityConfig.class, CronConfig.class})
 public class RootConfig {
 
     @Bean
