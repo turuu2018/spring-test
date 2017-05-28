@@ -45,6 +45,9 @@
         <!-- Logging -->
         <logback.version>1.1.6</logback.version>
         <jcl.slf4j.version>1.7.19</jcl.slf4j.version>
+
+        <javax-el.version>2.2</javax-el.version>
+        <glassfish-el.version>2.2.6</glassfish-el.version>
     </properties>
 
     <dependencies>
@@ -217,6 +220,24 @@
             <version>${logback.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-framework.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>${javax-el.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>${glassfish-el.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
