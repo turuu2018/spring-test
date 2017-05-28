@@ -1,6 +1,8 @@
 package mn.turuu.springtest.model;
 // Generated May 28, 2017 1:21:27 PM by Hibernate Tools 4.3.1
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -17,11 +19,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "product")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product implements java.io.Serializable {
 
     private Integer id;
     private String name;
     private double price;
+
+    @JsonIgnore
     private Set<Basket> baskets = new HashSet<>(0);
 
     public Product() {

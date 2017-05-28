@@ -1,5 +1,5 @@
 package mn.turuu.springtest.model;
-// Generated May 28, 2017 1:21:27 PM by Hibernate Tools 4.3.1
+// Generated May 28, 2017 1:45:33 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;
