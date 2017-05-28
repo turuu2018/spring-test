@@ -18,7 +18,9 @@
         <title>Spring Test</title>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="<c:url value="/static/css/bootstrap.min.css"/>"/>
+        <link rel="stylesheet" href="<c:url value="/static/css/bootstrap/bootstrap.min.css"/>"/>
+        <link rel="stylesheet" href="<c:url value="/static/css/reset.css"/>"/>
+        <link rel="stylesheet" href="<c:url value="/static/css/style.css"/>"/>
 
         <!-- JS -->
         <script type="text/javascript" src="<c:url value="/static/js/jquery-1.11.1.js"/>"></script>

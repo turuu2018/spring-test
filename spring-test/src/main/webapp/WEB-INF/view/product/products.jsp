@@ -39,7 +39,8 @@
                     quantity: 1
                 },
                 success: function(result) {
-                    console.log(result);
+                    //console.log(result);
+                    updateBasket();
                 }
             });
         });
