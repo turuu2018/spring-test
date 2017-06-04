@@ -18,6 +18,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
+import org.apache.lucene.analysis.standard.StandardFilterFactory;
+import org.apache.lucene.analysis.standard.StandardTokenizerFactory;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Analyzer;
+import org.hibernate.search.annotations.AnalyzerDef;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.TokenFilterDef;
+import org.hibernate.search.annotations.TokenizerDef;
 
 /**
  *
@@ -25,6 +37,12 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "user")
+@Indexed
+@AnalyzerDef(name = "UserTextAnalyzer", tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class),
+        filters = {
+            @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+            @TokenFilterDef(factory = StandardFilterFactory.class)
+        })
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User implements Serializable {
 
@@ -34,6 +52,7 @@ public class User implements Serializable {
     private Integer id;
 
     @Column(name = "username", nullable = false, length = 50)
+    @Field(index = Index.YES, analyze = Analyze.YES, store=Store.NO, analyzer = @Analyzer(definition = "UserTextAnalyzer"))
     private String username;
 
     @JsonIgnore
@@ -44,9 +63,11 @@ public class User implements Serializable {
     private boolean active;
 
     @Column(name = "last_name", length = 255)
+    @Field(index = Index.YES, analyze = Analyze.YES, store=Store.NO, analyzer = @Analyzer(definition = "UserTextAnalyzer"))
     private String lastName;
 
     @Column(name = "first_name", length = 255)
+    @Field(index = Index.YES, analyze = Analyze.YES, store=Store.NO, analyzer = @Analyzer(definition = "UserTextAnalyzer"))
     private String firstName;
 
     @Column(name = "activate_token", length = 50)

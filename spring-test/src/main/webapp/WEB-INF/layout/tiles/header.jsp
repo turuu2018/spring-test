@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <header>
     <div id="logo"><img src="<c:url value="/static/img/cd-logo.svg"/>" alt="Homepage"></div>
@@ -17,7 +18,11 @@
         <li><a href="#0">About</a></li>
         <li><a class="current" href="#0">Services</a></li>
         <li><a href="#0">Gallery</a></li>
-        <li><a href="#0">Contact</a></li>
+        <li>
+            <form:form modelAttribute="searchForm" method="GET" action="${pageContext.request.contextPath}/search?${_csrf.parameterName}=${_csrf.token}" class="form-horizontal">
+                <form:input path="searchText" placeholder="Хайх" class="form-control"/>
+            </form:form>
+        </li>
     </ul>
 </nav>
 

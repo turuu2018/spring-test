@@ -2,13 +2,18 @@ package mn.turuu.springtest.dao;
 
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import mn.turuu.springtest.model.User;
+import org.apache.lucene.search.Query;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.Search;
+import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -111,5 +116,25 @@ public class UserDAO {
         }
 
         return null;
+    }
+
+    public List<User> search(String searchText) {
+        List results = null;
+
+        try {
+            Session session = sessionFactory.getCurrentSession();
+
+            FullTextSession ftSession = Search.getFullTextSession(session);
+            ftSession.createIndexer().startAndWait();
+
+            QueryBuilder qb = ftSession.getSearchFactory().buildQueryBuilder().forEntity(User.class).get();
+            Query l_q = qb.keyword().onFields("username", "lastName", "firstName").matching(searchText).createQuery();
+            org.hibernate.Query h_q = ftSession.createFullTextQuery(l_q, User.class);
+            results = h_q.list();
+        } catch (HibernateException | InterruptedException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+        }
+
+        return results;
     }
 }

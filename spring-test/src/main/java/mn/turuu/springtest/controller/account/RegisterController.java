@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import mn.turuu.springtest.controller.BaseController;
 import mn.turuu.springtest.dao.UserDAO;
 import mn.turuu.springtest.form.RegisterForm;
 import mn.turuu.springtest.model.User;
@@ -62,6 +63,9 @@ public class RegisterController {
     @Autowired
     private UserDetailsService UserDetailsService;
 
+    @Autowired
+    private BaseController baseController;
+
     @ModelAttribute
     public RegisterForm initRegisterForm() {
         return new RegisterForm();
@@ -70,6 +74,8 @@ public class RegisterController {
     @RequestMapping(value = {"/register"}, method = RequestMethod.GET)
     public ModelAndView register(@ModelAttribute RegisterForm registerForm) {
         ModelAndView mav = new ModelAndView("register");
+        baseController.init(mav);
+
         mav.addObject("registerForm", registerForm);
         return mav;
     }
@@ -137,6 +143,7 @@ public class RegisterController {
             }
         }
 
+        baseController.init(mav);
         return mav;
     }
 
@@ -164,6 +171,7 @@ public class RegisterController {
             }
         }
 
+        baseController.init(mav);
         return mav;
     }
 }

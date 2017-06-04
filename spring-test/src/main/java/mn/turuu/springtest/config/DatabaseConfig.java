@@ -32,6 +32,9 @@ public class DatabaseConfig {
     @Value("${db.password}")
     private String dbPassword;
 
+    @Value("${hibernate.indexBase}")
+    private String indexBase;
+
     private final String driver = "com.mysql.jdbc.Driver";
 
     private final String dialect = "org.hibernate.dialect.MySQLDialect";
@@ -63,6 +66,8 @@ public class DatabaseConfig {
         props.put("hibernate.c3p0.max_statements", 50);
         props.put("hibernate.c3p0.timeout", 1800);
         props.put("hibernate.c3p0.idle_test_periods", 900);
+        props.put("hibernate.search.default.directory_provider", "filesystem");
+        props.put("hibernate.search.default.indexBase", indexBase);
         return props;
     }
 

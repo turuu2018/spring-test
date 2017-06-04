@@ -20,10 +20,15 @@ public class IndexController {
     @Autowired
     private UserDAO userDAO;
 
+    @Autowired
+    private BaseController baseController;
+
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public ModelAndView index() {
         LOGGER.info(">>> index controller");
         ModelAndView mav = new ModelAndView("index");
+        baseController.init(mav);
+
         mav.addObject("users", userDAO.list(null));
         return mav;
     }
