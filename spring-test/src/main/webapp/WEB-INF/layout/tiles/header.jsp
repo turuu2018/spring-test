@@ -50,7 +50,7 @@
     </div>
 </div>
 
-<jsp:include page="/WEB-INF/view/basket.jsp"/>
+<jsp:include page="/WEB-INF/view/basket_angular.jsp"/>
 
 <script>
     function toggle_panel_visibility($lateral_panel, $background_layer, $body) {
